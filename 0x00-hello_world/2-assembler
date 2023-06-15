@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -c "$CFILE" -S "$(echo "$CFILE" | tr -d ".c")"
+gcc -S "$CFILE"
