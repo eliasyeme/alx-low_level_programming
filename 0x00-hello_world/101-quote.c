@@ -11,7 +11,7 @@
 
 int main(void)
 {
-char error_message[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
-write(2, error_message, strlen(error_message));
+char e[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
+write(2, e, strlen(error_message));
 return (1);
 }
