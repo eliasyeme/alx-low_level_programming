@@ -1,2 +1,3 @@
 # Hello World
-- Basic intro to c assignments
+## Basic intro to c assignments
+0-preproccessor - script that runs a C file through the preprocessor and save the result into another file
