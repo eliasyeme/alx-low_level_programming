@@ -1,0 +1,3 @@
+#!/bin/bash
+gcc -c "$CFILE" -o "$(echo "$CFILE" | tr -d ".c")".o
+
