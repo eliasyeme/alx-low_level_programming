@@ -7,6 +7,6 @@
   */
 int _putchar(char c)
 {
-	 write(STDIN_FILENO, &c, 1);
-   return 1;
+	write(STDIN_FILENO, &c, 1);
+	return (1);
 }
