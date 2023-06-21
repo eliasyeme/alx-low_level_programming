@@ -9,7 +9,7 @@ int main(void)
 	unsigned long num1 = 0;
 	unsigned long num2 = 1;
 	unsigned long next;
-	unsigned long sum;
+	unsigned long sum = 0;
 	int i = 0;
 
 	for (; i < 50; i++)
