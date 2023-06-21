@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * sum_of_3_or_5 - print the sum of all multiples of 3 or 5
+ * main - print the sum of all multiples of 3 or 5
  * Return: 0 on sucess
  */
 int main(void)
