@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * _strncat concat two words
+ * _strncat - concat two words
  * @dest: destination
  * @src: source
  * @n: maximum byte
@@ -15,7 +15,7 @@ char *_strncat(char *dest, char *src, int n)
 		len++;
 
 	for (i = 0; i < n && src[i]; i++)
-		dest[len++] = src[i];
+		dest[len + i] = src[i];
 
 	return (dest);
 }
