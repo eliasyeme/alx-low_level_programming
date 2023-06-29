@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 /**
  * _strncat concat two words
  * @dest: destination
@@ -12,12 +14,8 @@ char *_strncat(char *dest, char *src, int n)
 	while (dest[len] != '\0')
 		len++;
 
-	for (i = 0; i < n; i++)
-	{
-		if (src[i] == '\0')
-			break;
-		dest[len + i] = src[i];
-	}
+	for (i = 0; i < n && src[i]; i++)
+		dest[len++] = src[i];
 
 	return (dest);
 }
