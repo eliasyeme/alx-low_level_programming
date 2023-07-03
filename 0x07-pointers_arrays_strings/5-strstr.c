@@ -9,16 +9,16 @@
  */
 char *_strstr(char *haystack, char *needle)
 {
-	int i;
+	int i, j;
 
-	for (; *haystack; haystack++)
+	for (i = 0; haystack[i]; i++)
 	{
-		for (i = 0; needle[i]; i++)
+		for (j = 0; needle[j]; j++)
 		{
-			if (*(haystack + i) != needle[i])
+			if (haystack[i + j] != needle[j])
 				break;
-			else if (!needle[i + 1])
-				return (haystack);
+			else if (!needle[j + 1])
+				return (&haystack[i]);
 		}
 	}
 
