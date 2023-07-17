@@ -5,12 +5,13 @@
 #include <stdlib.h>
 
 /**
-	* struct dog - dog
+	* struct dog - datatype to represent dog
 	* @name: name of the dog
 	* @age: age of the dog
 	* @owner: name of the owner
 	*/
-struct dog {
+struct dog
+{
 	char *name;
 	float age;
 	char *owner;
