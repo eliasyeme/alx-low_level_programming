@@ -1,8 +1,8 @@
 #include "lists.h"
 
 /**
- * print_list - print len and string
- * @h: input list
+ * print_list - print elements of list
+ * @h: input list to print
  *
  * Return: number of elements printed
  */
