@@ -1,4 +1,6 @@
+#include <stdlib.h>
 #include "lists.h"
+#include <stdio.h>
 /**
  * print_list - print elements of list
  * @h: input list to print
