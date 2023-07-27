@@ -9,19 +9,14 @@
 size_t print_list(const list_t *h)
 {
 	size_t i = 0;
-	int len;
-	char *s;
 
 	while (h)
 	{
-		s = h->str;
-		len = h->len;
-		if (!s)
-		{
-			s = "(nil)";
-			len = 0;
-		}
-		printf("[%d] %s\n", len, s);
+		if (!h->str)
+			printf("[0] (nil)\n");
+		else
+			printf("[%d] %s\n", h->len, h->str);
+
 		h = h->next;
 		i++;
 	}
