@@ -9,9 +9,14 @@
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *last, *node = (list_t *)malloc(sizeof(list_t));
+	list_t *last, *node;
 
-	if (node && str)
+	if (!str)
+		return (NULL);
+
+	node = (list_t *)malloc(sizeof(list_t));
+
+	if (node)
 	{
 		node->str = strdup(str);
 		node->len = strlen(str);
