@@ -1,7 +1,8 @@
 #include "lists.h"
+#include <stdlib.h>
 
 /**
- * insert_nodeint_at_index - insert element at an index
+ * insert_nodeint_at_index - insert element at an idx
  * @head: node list
  * @idx: where to insert
  * @n: element to insert
@@ -10,33 +11,34 @@
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	listint_t *node = (listint_t *) malloc(sizeof(listint_t));
-	listint_t *tmp = *head;
+	unsigned int i = 0;
+	listint_t *prv_node, *node = *head;
+	listint_t *new_node = (listint_t *) malloc(sizeof(listint_t));
 
-	if (!node)
+	if (!new_node)
 		return (NULL);
 
-	if (!tmp)
-		return (NULL);
+	new_node->n = n;
+	new_node->next = NULL;
 
-	node->n = n;
-	node->next = NULL;
-
-
-	while (idx)
+	while (node)
 	{
-		idx--;
-		if (tmp)
-			tmp = tmp->next;
-		else
-			break;
+		if (i == idx)
+		{
+			if (idx == 0)
+			{
+				new_node->next = *head;
+				*head = new_node;
+				return (*head);
+			}
+			new_node->next = prv_node->next;
+			prv_node->next = new_node;
+			return (*head);
+		}
+		else if ((i + 1) == idx)
+			prv_node = node;
+		node = node->next;
+		i++;
 	}
-
-	if (idx == 0 && tmp)
-	{
-		node->next = tmp->next;
-		tmp->next = node;
-	}
-
-	return (*head);
+	return (NULL);
 }
