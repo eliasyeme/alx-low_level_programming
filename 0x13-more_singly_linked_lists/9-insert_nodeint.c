@@ -1,5 +1,4 @@
 #include "lists.h"
-#include <stdlib.h>
 
 /**
  * insert_nodeint_at_index - insert element at an idx
@@ -11,44 +10,35 @@
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	listint_t *node;
-	listint_t *tmp = *head;
-	unsigned int i = 0;
+	unsigned int i;
+	listint_t *tmp, *node;
 
-	while (tmp->next)
-	{
-		i++;
-		tmp = tmp->next;
-	}
-
-	if (idx > i)
+	if (!head)
 		return (NULL);
 
-	node = (listint_t *)malloc(sizeof(listint_t));
+	node = (listint_t *) malloc(sizeof(listint_t));
 	if (!node)
 		return (NULL);
 
 	node->n = n;
-	node->next = NULL;
-	i = 0;
-	while (head)
+
+	if (idx)
 	{
-		if (i == idx)
-		{
-			if (i == 0)
-			{
-				node->next = *head;
-				*head = node;
-				return (node);
-			}
-			node->next = tmp->next;
-			tmp->next = node;
-			return (node);
-		}
-		else if ((i + 1) == idx)
-			tmp = *head;
-		head = &((*head)->next);
-		i++;
+		tmp = *head;
+		for (i = 0; tmp && i < idx - 1; i++)
+			tmp = tmp->next;
+
+		if (!tmp)
+			return (NULL);
 	}
-	return (NULL);
+
+	if (!idx)
+	{
+		node->next = *head;
+		*head = node;
+		return (node);
+	}
+	node->next = tmp->next;
+	tmp->next = node;
+	return (node);
 }
