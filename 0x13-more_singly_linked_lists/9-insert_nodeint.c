@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdlib.h>
 
 /**
  * insert_nodeint_at_index - insert element at an idx
@@ -33,17 +34,18 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		return (new_node);
 	}
 
-	while (node)
+	while (node && (i + 1 < idx))
 	{
 		node = node->next;
-		if (i + 1 == idx)
-		{
-			new_node->next = node->next;
-			node->next = new_node;
-			return (new_node);
-		}
 		i++;
 	}
 
+	if (node->next)
+	{
+		new_node->next = node->next;
+		node->next = new_node;
+		return (new_node);
+	}
+	free(new_node);
 	return (NULL);
 }
