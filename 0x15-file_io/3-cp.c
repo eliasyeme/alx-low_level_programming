@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
 		if (from == -1 || fr == -1)
 		{
 			free(buffer);
-			match_exit(98, argv[2]);
+			match_exit(98, argv[1]);
 		}
 
 		if (to == -1 || write(to, buffer, fr) == -1)
