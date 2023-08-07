@@ -10,15 +10,16 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int fo, len = 0, permission = 0600;
+	int fo, len = 0;
 
 	if (!filename)
 		return (-1);
 
-	while (text_content[len])
-		len++;
+	if (text_content)
+		while (text_content[len])
+			len++;
 
-	fo = open(filename, O_CREAT | O_RDWR | O_TRUNC, permission);
+	fo = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
 	if (fo == -1 || write(fo, text_content, len) == -1)
 		return (-1);
 
