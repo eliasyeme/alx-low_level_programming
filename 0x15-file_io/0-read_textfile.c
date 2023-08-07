@@ -12,7 +12,7 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	ssize_t file_opened, file_read;
+	ssize_t fo, fd;
 	char *buffer;
 
 	if (!filename)
@@ -22,21 +22,21 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (!buffer)
 		return (0);
 
-	file_opened = open(filename, O_RDONLY);
-	if (file_opened == -1)
+	fo = open(filename, O_RDONLY);
+	if (fo == -1)
 	{
 		free(buffer);
 		return (0);
 	}
 
-	file_read = read(file_opened, buffer, letters);
-	if (write(STDOUT_FILENO, buffer, file_read) != file_read)
+	fd = read(fo, buffer, letters);
+	if (write(STDOUT_FILENO, buffer, fd) != fd)
 	{
 		free(buffer);
 		return (0);
 	}
 	free(buffer);
-	close(file_opened);
+	close(fo);
 
-	return (file_read);
+	return (fd);
 }
