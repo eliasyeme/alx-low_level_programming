@@ -36,6 +36,24 @@ hash_node_t *new_hash(const char *key, const char *value)
 }
 
 /**
+ * append - append to a linked list
+ * @list: list to append to
+ * @node: node to append
+ */
+void append(hash_node_t *list, hash_node_t *node)
+{
+	while (1)
+	{
+		if (list->next == NULL)
+		{
+			list->next = node;
+			break;
+		}
+		list = list->next;
+	}
+}
+
+/**
 	* hash_table_set - add element to the hash table
 	* @ht: hash table to add/update the key/value to
 	* @key: the key which can't be empty string
@@ -74,6 +92,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (!new)
 		return (0);
 
-	ht->array[idx] = new;
+	if (!ht->array[idx])
+	{
+		ht->array[idx] = new;
+		return (1);
+	}
+
+	tmp = ht->array[idx];
+	append(tmp, new);
+
 	return (1);
 }
